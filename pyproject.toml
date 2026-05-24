@@ -1,0 +1,21 @@
+[project]
+name = "market-insights-service"
+version = "0.1.0"
+description = "FastAPI + Google ADK Parallel Agent Market Insights Service"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "fastapi>=0.110.0",
+    "uvicorn>=0.28.0",
+    "beanie>=1.25.0",
+    "motor>=3.3.2",
+    "google-adk>=2.0.0",
+    "google-genai>=0.1.1",
+    "pydantic>=2.6.0",
+    "pydantic-settings>=2.2.1",
+    "python-dotenv>=1.0.1",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
