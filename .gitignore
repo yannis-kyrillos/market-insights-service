@@ -1,0 +1,97 @@
+# ============================================================================
+# FastAPI / Python Core
+# ============================================================================
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# ============================================================================
+# Virtual Environments (The "Sandboxes")
+# ============================================================================
+# Default Python venv
+venv/
+.venv/
+env/
+.env/
+ENV/
+
+# Poetry, Pipenv, and Hatch environments
+.venv
+.pipenv
+.poetry
+
+# ============================================================================
+# Environment Variables & Secrets (CRITICAL for FastAPI)
+# ============================================================================
+# Never commit your production secrets, API keys, or DB passwords!
+.env
+.env.*
+!.env.example  # DO commit the template file so others know what variables to set
+.secrets
+*.pem
+*.key
+
+# ============================================================================
+# Databases (SQLite / Local DB dumps)
+# ============================================================================
+# If you use SQLite for local testing, don't commit the database file
+*.db
+*.sqlite3
+*.sqlite
+
+# ============================================================================
+# Testing & Code Quality
+# ============================================================================
+.pytest_cache/
+.htmlcov/
+htmlcov/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.mypy_cache/
+.ruff_cache/
+
+# ============================================================================
+# IDEs and Editors
+# ============================================================================
+# VS Code
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# JetBrains (PyCharm)
+.idea/
+
+# OS generated files
+.DS_Store
+Thumbs.db
