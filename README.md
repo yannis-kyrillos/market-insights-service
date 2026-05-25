@@ -1,6 +1,6 @@
 # Competitor Market Insights Service
 
-A production-ready REST API built with **FastAPI** and **Google Agent Development Kit (ADK)** to gather and synthesize market insights on competitor products. The service uses **MongoDB** and **Beanie ODM** for data persistence.
+A REST API built with **FastAPI** and **Google Agent Development Kit (ADK)** to gather and synthesize market insights on competitor products. The service uses **MongoDB** and **Beanie ODM** for data persistence.
 
 The system spawns three specialized agents running **in parallel** via Google ADK:
 1.  **Price Analyst**: Evaluates pricing tiers, models, and value-for-money metrics.
