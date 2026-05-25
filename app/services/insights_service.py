@@ -62,8 +62,7 @@ async def run_analysis_background(insight_id: PydanticObjectId, competitor: str,
 
 
 class InsightsService:
-    @staticmethod
-    async def create_insight(dto: InsightCreateDTO, background_tasks: BackgroundTasks) -> CompetitorInsight:
+    async def create_insight(self, dto: InsightCreateDTO, background_tasks: BackgroundTasks) -> CompetitorInsight:
         """
         Creates a new competitor insight document, enqueues the agent work in a background task,
         and returns the pending insight record.
@@ -89,12 +88,10 @@ class InsightsService:
         
         return insight
 
-    @staticmethod
-    async def get_insight(insight_id: PydanticObjectId) -> Optional[CompetitorInsight]:
+    async def get_insight(self, insight_id: PydanticObjectId) -> Optional[CompetitorInsight]:
         """Retrieves a single competitor insight from the database."""
         return await CompetitorInsight.get(insight_id)
 
-    @staticmethod
-    async def list_insights() -> List[CompetitorInsight]:
+    async def list_insights(self) -> List[CompetitorInsight]:
         """Retrieves all competitor insights from the database, ordered by creation date."""
         return await CompetitorInsight.find_all().sort(-CompetitorInsight.created_at).to_list()

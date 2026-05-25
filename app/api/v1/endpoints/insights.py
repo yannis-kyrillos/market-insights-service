@@ -1,6 +1,6 @@
 from typing import List
 from beanie import PydanticObjectId
-from fastapi import APIRouter, HTTPException, BackgroundTasks, status
+from fastapi import APIRouter, HTTPException, BackgroundTasks, status, Depends
 
 from app.dtos.insights_dtos import InsightCreateDTO, InsightResponseDTO, InsightListItemDTO
 from app.services.insights_service import InsightsService
@@ -17,9 +17,10 @@ router = APIRouter()
 )
 async def create_competitor_insight(
     dto: InsightCreateDTO,
-    background_tasks: BackgroundTasks
+    background_tasks: BackgroundTasks,
+    service: InsightsService = Depends(InsightsService)
 ):
-    insight = await InsightsService.create_insight(dto, background_tasks)
+    insight = await service.create_insight(dto, background_tasks)
     return insight
 
 
@@ -29,8 +30,11 @@ async def create_competitor_insight(
     summary="Get competitor market analysis details",
     description="Retrieves the detailed status and agent insights for a specific competitor analysis by its ID."
 )
-async def get_competitor_insight(insight_id: PydanticObjectId):
-    insight = await InsightsService.get_insight(insight_id)
+async def get_competitor_insight(
+    insight_id: PydanticObjectId,
+    service: InsightsService = Depends(InsightsService)
+):
+    insight = await service.get_insight(insight_id)
     if not insight:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
@@ -45,6 +49,8 @@ async def get_competitor_insight(insight_id: PydanticObjectId):
     summary="List all competitor analysis tasks",
     description="Retrieves a list of all competitor analyses that have been requested, sorted by creation date."
 )
-async def list_competitor_insights():
-    insights = await InsightsService.list_insights()
+async def list_competitor_insights(
+    service: InsightsService = Depends(InsightsService)
+):
+    insights = await service.list_insights()
     return insights
